@@ -67,14 +67,14 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label>School</label>
-                                        <select class="form-control ma-category" name = "school">
-                                                        <option value="School of Technology">School of Technology</option>
-                                                        <option value="School of Management">School of Management</option>
-                                                        <option value="School of Humanities">School of Humanities</option>
-                                                    </select>
-                                    </div>
+                                  <div class="form-group">
+                                    <label>School</label>
+                                    <select class="form-control ma-category" name = "school">
+                                      <option value="School of Technology">School of Technology</option>
+                                      <option value="School of Management">School of Management</option>
+                                      <option value="School of Humanities">School of Humanities</option>
+                                    </select>
+                                  </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -137,7 +137,7 @@
                                                 <div class="form-group">
                                                     <label>Date</label>
                                                     <input type="date" class="form-control ma-date" name = "datecreated">
-													
+
                                                 </div>
                                             </div>
                                             <div class="col-sm-3">
@@ -245,7 +245,7 @@
                                                                 <td class="text-right"><h4 class="diemTotal" name = "totalDiem">0</h4></td>
                                                                 <td class="text-right"><h4 class="regTotal" name = "totalReg">0</h4></td>
                                                                 <td class="text-right"><h4 class="transpoTotal" name = "totalTranspo">0</h4></td>
-                                                                
+
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -318,14 +318,14 @@
                 <div class="row">
                     <div class="col-sm-6 pull-right text-right">
                         <a data-toggle="modal" data-target="#reviewMA" id="btnSubmitMA" class="btn btn-primary btn-lg">
-                            Submit 
+                            Submit
                             <i class="fa fa-send"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            
-    
+
+
             </div>
             <!-- /.container-fluid -->
 
@@ -407,7 +407,7 @@
                                     </tr>
                                 </thead>
                                 <tbody id="maEach">
-                                   
+
                                 </tbody>
                             </table>
                         </div>
@@ -581,7 +581,7 @@
                                                                 <td class="text-right"><h4 class="regTotal" name = "totalReg">0</h4></td>
                                                                 <!-- <td class="text-right"><h4 class="foodTotal">0</h4></td> -->
                                                                 <td class="text-right"><h4 class="transpoTotal" name = "totalTranspo">0</h4></td>
-                                                                
+
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -683,10 +683,10 @@
                 var ma = [];
                 var counter=0;
                 $('.ma').each(function(){
-                   
+
                     var eachMa =
                         {
-                            
+
 
                             title: $(this).find('.ma-title').val(),
                             category: $(this).find('.ma-category').val(),
@@ -700,7 +700,7 @@
                             // pax: $(this).find('.ma-pax').val(),
                             budget: $(this).find('.ma-budgetTotal').text(),
                         };
-                       counter++;  
+                       counter++;
                     deanNumber[counter]=$(this).find('.ma-deanQty').val();
                     chairNumber[counter]=$(this).find('.ma-chairQty').val();
                     facNumber[counter]=$(this).find('.ma-facQty').val();
@@ -718,7 +718,7 @@
                     facTranspo[counter]=$(this).find('.ma-facTranspo').val();
                     // foodFee[counter]=$(this).find('.ma-foodFee').val();
                     // transFee[counter]=$(this).find('.ma-transFee').val();
-                    
+
                     ma.push(eachMa);
                 });
 /// on going
@@ -925,7 +925,7 @@
                 $(element).closest('.ma').find('.transpoTotal').html(totalTranspo);
                                 // console.log("Transpo "+totalTranspo);
                 computeTotalBudget(element);
-               
+
 
             }
 
@@ -1001,9 +1001,9 @@
                          computeTableTranspo(element);
                         computeSubtotal1(element);
                         computeTotalBudget(element);
-                       
+
                     }
-                   
+
 
                 }else{
                     $(element).closest('.ma').find('.ma-deanHotel').val(0);
@@ -1023,14 +1023,14 @@
                          computeTableTranspo(element);
                          computeTotalBudget(element);
                     }else{
-                        $(element).closest('.ma').find('.ma-chairHotel').val(0); 
+                        $(element).closest('.ma').find('.ma-chairHotel').val(0);
                         $(element).closest('.ma').find('.ma-chairDiem').val(chairDiemTotal);
                         computeSubtotal1(element);
                         computeTable1(element);
-                        computeTableTranspo(element);  
+                        computeTableTranspo(element);
                         computeTotalBudget(element);
                     }
-                   
+
                 }else{
                     $(element).closest('.ma').find('.ma-chairHotel').val(0);
                     $(element).closest('.ma').find('.ma-chairDiem').val(0);
@@ -1057,7 +1057,7 @@
                         computeTableTranspo(element);
                         computeTotalBudget(element);
                     }
-                    
+
                 }else{
                     $(element).closest('.ma').find('.ma-facHotel').val(0);
                     $(element).closest('.ma').find('.ma-facDiem').val(0);
@@ -1092,7 +1092,7 @@
                     var facTotal = 0;
                 }
 
-                
+
                 var pax = deanTotal+chairTotal+facTotal;
                 // console.log(chairTotal);
                 var hotelTotal = (deanHotelTotal)+(chairHotelTotal)+(facHotelTotal);
@@ -1199,7 +1199,7 @@
         function confirmMustAttend(){
             var notif;
             var counts=0;
-           
+
         for( var x=1;x<=count;x++){
             var title=document.getElementById("title"+x).innerText;
 
@@ -1234,11 +1234,11 @@
             // var feeTrans = transFee[x];
            // alert(transpoDean+","+transpoChair+","+transpoFaculty);
             // alert(ay+datecreated+school+department+title+category+sponsor+date+days+venue+person+budget);
-            
+
             var xmlhttp = new XMLHttpRequest();
             var ip ="http://efsdp.icodeforu.com/db/";
                var url = ip+"db_createMAS.php";
-                
+
                 xmlhttp.open("POST", url, true);
                 xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
                  xmlhttp.onreadystatechange=function() {
@@ -1246,7 +1246,7 @@
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                     var data = JSON.parse(xmlhttp.responseText);
                      notif =data.notification;
-                       
+
                     }
 
 
@@ -1255,18 +1255,18 @@
                       xmlhttp.send("ay="+ ay +"&"+"datecreated=" + datecreated +"&"+"school=" + school +"&"+"department=" + department +"&"+"title=" + title+"&"+"category=" + category+"&"+"sponsor=" + sponsor+"&"+"date=" + date+"&"+"days=" + days+"&"+"venue=" + venue+"&"+"person=" + person+"&"+"budget=" + budget+"&"+"numDean=" + numDean +"&"+"numChair=" +  numChair +"&"+"numFaculty=" + numFaculty +"&"+"hotelDean=" + hotelDean+"&"+"hotelChair=" + hotelChair+"&"+"hotelFaculty=" + hotelFaculty+"&"+"diemDean=" + diemDean+"&"+"diemChair=" + diemChair+"&"+"diemFaculty=" + diemFaculty+"&"+"regDean=" + regDean+"&"+"regChair=" + regChair+"&"+"regFaculty=" + regFaculty+"&"+"transpoDean=" + transpoDean+"&"+"transpoChair=" + transpoChair+"&"+"transpoFaculty=" + transpoFaculty);
                    // xmlhttp.send("ay="+ ay +"&"+"datecreated=" + datecreated +"&"+"school=" + school +"&"+"department=" + department +"&"+"title=" + title+"&"+"category=" + category+"&"+"sponsor=" + sponsor+"&"+"date=" + date+"&"+"days=" + days+"&"+"venue=" + venue+"&"+"person=" + person+"&"+"budget=" + budget);
              counts++;
-            
+
             if(counts==count){
                  alert("Successfully added new must attend seminar");
                  window.open("maList.php","_self");
-               
+
             }
          }
-//  
-           
+//
+
     count=0;
         }
-       
+
     </script>
 
 </body>
