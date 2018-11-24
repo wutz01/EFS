@@ -1,0 +1,89 @@
+body{
+    background-color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    background-color: transparent;
+    text-decoration: underline;
+    color: #ffffff;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #ffffff;
+}
+
+.top-nav>li>a {
+    color: #106A8B;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #268;
+    background-color: #106A8B;
+}
+
+
+.side-nav{
+    background-color: #106A8B;
+    border-right: solid 1px #e7e7e7;
+}
+.side-nav li a:hover,
+.side-nav li a:focus {
+    background-color: #106A8B !important;
+}
+.side-nav>li>ul>li>a {
+    color: #ffffff;
+}
+.side-nav>li>ul>li>a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.side-nav li a:hover, .side-nav li a:focus {
+    background-color: #106A8B !important;
+}
+
+
+
+.hoverRow tr:hover{
+    background: #E9E9E9;
+    cursor: pointer;
+    color: #5C5C5C;
+}
+
+.panelHover:hover{
+	background-color: #F4F4F4;
+}
+
+
+@media (min-width: 1133px) {
+  .modal-xl{
+  	width: 1100px;
+  }
+}
+
+.cursor{
+        cursor: default;
+}
+.status{
+        padding: .2em .6em .3em;
+        color: #fff;
+        text-align: center;
+        border-radius: .10em;
+}
+.status-default{
+    background-color: #777;
+}
+.status-primary{
+    background-color: #106A8B;
+}
+.status-success{
+    background-color: #5cb85c;
+}
+.status-danger{
+    background-color: #d9534f;
+}
+.status-warning{
+    background-color: #f0ad4e;
+}

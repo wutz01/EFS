@@ -1,0 +1,208 @@
+[25-Feb-2017 16:42:59 Asia/Taipei] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2506
+[25-Feb-2017 16:42:59 Asia/Taipei] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2506
+[25-Feb-2017 16:42:59 Asia/Taipei] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2506
+[25-Feb-2017 16:42:59 Asia/Taipei] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2506
+[25-Feb-2017 16:42:59 Asia/Taipei] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2506
+[25-Feb-2017 16:42:59 Asia/Taipei] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2506
+[25-Feb-2017 16:42:59 Asia/Taipei] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2506
+[25-Feb-2017 16:42:59 Asia/Taipei] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2506
+[25-Feb-2017 16:42:59 Asia/Taipei] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:2506) in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2555
+[25-Feb-2017 16:42:59 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:2506)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1052): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2616): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(135): fsdp('\r\n(\r\n\t(masbreak...')
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[25-Feb-2017 16:47:51 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1488
+[25-Feb-2017 16:47:51 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:1488)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1052): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(1508): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(121): compBudget('\r\n(\r\n\t(masbreak...')
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[25-Feb-2017 16:51:12 Asia/Taipei] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1546
+[25-Feb-2017 16:51:12 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:1546)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1052): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(999): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(1650): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(124): others()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[13-Mar-2017 16:34:39 UTC] PHP Parse error:  syntax error, unexpected 'define' (T_STRING) in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 10
+[14-Mar-2017 01:34:33 Asia/Taipei] PHP Fatal error:  Class 'MC_TABLE' not found in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2270
+[14-Mar-2017 01:34:37 Asia/Taipei] PHP Fatal error:  Class 'MC_TABLE' not found in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2270
+[16-Mar-2017 10:10:12 UTC] PHP Parse error:  syntax error, unexpected '$pdf' (T_VARIABLE) in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2585
+[16-Mar-2017 10:46:25 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1072
+[17-Mar-2017 00:44:48 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1186
+[17-Mar-2017 00:44:48 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1186
+[17-Mar-2017 00:44:48 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1186
+[17-Mar-2017 00:44:48 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1186
+[17-Mar-2017 00:44:48 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1186
+[17-Mar-2017 00:44:48 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1186
+[17-Mar-2017 00:44:48 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1186
+[17-Mar-2017 00:44:48 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1186
+[17-Mar-2017 00:44:48 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1219
+[17-Mar-2017 00:44:48 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:1186)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(1227): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(119): perCollege2()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 00:48:08 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1223
+[17-Mar-2017 00:48:08 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:1223)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(1231): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(119): perCollege2()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 00:53:55 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:1203)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(1236): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(119): perCollege2()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 01:04:46 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1012
+[17-Mar-2017 01:04:46 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:1012)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(1039): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(119): perCollege2()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 01:05:01 Asia/Taipei] PHP Warning:  Division by zero in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1012
+[17-Mar-2017 01:05:01 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:1012)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(1039): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(119): perCollege2()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[16-Mar-2017 17:25:07 UTC] PHP Parse error:  syntax error, unexpected '{' in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2625
+[17-Mar-2017 01:25:22 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:1026)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2894): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(133): mas()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[16-Mar-2017 17:35:47 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 3345
+[17-Mar-2017 01:42:46 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:2448)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2523): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(128): tna()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 01:43:00 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:2448)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2523): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(128): tna()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[16-Mar-2017 17:43:58 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 1470
+[16-Mar-2017 17:44:02 UTC] PHP Parse error:  syntax error, unexpected ''%'' (T_CONSTANT_ENCAPSED_STRING) in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2505
+[17-Mar-2017 02:12:02 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:1026)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2998): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(133): mas()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 02:14:26 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:1026)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2993): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(133): mas()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 02:14:47 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:1026)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2992): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(133): mas()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 02:15:45 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:1026)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2992): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(133): mas()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 02:17:32 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:1026)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2991): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(133): mas()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 02:17:56 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:1026)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2990): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(133): mas()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 02:18:19 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:1026)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2989): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(133): mas()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 12:15:44 Asia/Taipei] PHP Parse error:  syntax error, unexpected '"'></a>"' (T_CONSTANT_ENCAPSED_STRING) in /home/icodefor/efsdp.icodeforu.com/pdf/mc_table.php on line 43
+[17-Mar-2017 12:16:04 Asia/Taipei] PHP Fatal error:  Call to undefined method MC_TABLE::WriteHTML() in /home/icodefor/efsdp.icodeforu.com/pdf/mc_table.php on line 44
+[17-Mar-2017 12:17:00 Asia/Taipei] PHP Fatal error:  Call to undefined method MC_TABLE::OpenTag() in /home/icodefor/efsdp.icodeforu.com/pdf/mc_table.php on line 51
+[17-Mar-2017 12:21:15 Asia/Taipei] PHP Fatal error:  Call to undefined method MC_TABLE::PutLink() in /home/icodefor/efsdp.icodeforu.com/pdf/mc_table.php on line 31
+[17-Mar-2017 12:53:04 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2322
+[17-Mar-2017 12:53:04 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:2322)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2334): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(128): tnaSum()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 12:53:37 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2322
+[17-Mar-2017 12:53:37 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:2322)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2334): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(128): tnaSum()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271
+[17-Mar-2017 05:05:27 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2302
+[18-Mar-2017 00:41:29 Asia/Taipei] PHP Warning:  Invalid argument supplied for foreach() in /home/icodefor/efsdp.icodeforu.com/pdf/reports.php on line 2379
+[18-Mar-2017 00:41:29 Asia/Taipei] PHP Fatal error:  Uncaught exception 'Exception' with message 'FPDF error: Some data has already been output, can't send PDF file (output started at /home/icodefor/efsdp.icodeforu.com/pdf/reports.php:2379)' in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php:271
+Stack trace:
+#0 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1070): FPDF->Error('Some data has a...')
+#1 /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php(1017): FPDF->_checkoutput()
+#2 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(2388): FPDF->Output()
+#3 /home/icodefor/efsdp.icodeforu.com/pdf/reports.php(128): tnaSum()
+#4 {main}
+  thrown in /home/icodefor/efsdp.icodeforu.com/plugins/fpdf/fpdf.php on line 271

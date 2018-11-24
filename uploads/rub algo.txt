@@ -1,0 +1,21 @@
+1st layer (cross)
+to find corners
+--- R' D' R D
+
+2nd layer (right edges)
+--- U R U' R' U' F' U F
+
+2nd layer (left edges)
+--- U' L' U L U F U' F'
+
+3rd layer (horizontal)
+--- F R U R' U' F'
+
+3rd layer (3 blocks 1 block remaining to make cross)
+--- F U R U' R' F'
+
+3rd layer (switch 2 middle)
+--- R U R' U R U U R'
+
+3rd layer (find near complete)
+--- U R U' L' U R' U' L
