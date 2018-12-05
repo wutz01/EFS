@@ -5,7 +5,8 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="plugins/gritter/js/jquery.gritter.min.js"></script>
     <script src="plugins/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-
+    <script src="plugins/notify/bootstrap-notify.min.js"></script>
+    <script src="js/global-efs.js"></script>
     <!-- Morris Charts JavaScript -->
 <!--     <script src="js/plugins/morris/raphael.min.js"></script>
     <script src="js/plugins/morris/morris.min.js"></script>

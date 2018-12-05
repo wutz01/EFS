@@ -72,21 +72,21 @@
                             <div class="list-group">
                             <?php
                             $conn = mysqli_connect("localhost","root","","efs");
-                            $q = mysqli_query($conn,"SELECT title, dates FROM mustattend WHERE department = '$college' ORDER BY dates<now() DESC");
+                            $q = mysqli_query($conn,"SELECT title, start_date, end_date FROM mustattend WHERE department = '$college' ORDER BY start_date<now() DESC");
                             if(mysqli_num_rows($q)!=0){
                                 while($rows=mysqli_fetch_assoc($q)){
 
-                                    if(date("Y-m-d")>$rows['dates']){
+                                    if(date("Y-m-d")>$rows['start_date']){
                                         $suffix =  "ago";
                                         $badge = "";
-                                    }else if(date("Y-m-d")<$rows['dates']){
+                                    }else if(date("Y-m-d")<$rows['start_date']){
                                         $suffix = "to go";
                                         $badge = "badge-primary";
                                     }else{
                                         $suffix = "TODAY!";
                                         $badge = "badge-success";
                                     }
-                                    $chronoDate = chrono(date("Y-m-d"),$rows['dates']);
+                                    $chronoDate = chrono(date("Y-m-d"),$rows['start_date']);
                                     echo '
                                     <a href="seminarCreateOff.php?title='.$rows['title'].'" class="list-group-item">
                                         <span class="badge '.$badge.'">'.$chronoDate.' '.$suffix.'</span>

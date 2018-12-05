@@ -78,8 +78,8 @@
 
             <!-- /.row -->
 
-            
-    
+
+
 
 
             <p>
@@ -88,7 +88,7 @@
 
             </p>
 
-                
+
 
             <div class="row">
                 <div class="col-sm-12">
@@ -161,7 +161,7 @@ $conn = mysqli_connect("localhost","root","","efs");
                                 $departments = $college;
                                                          $result = mysqli_query($conn, "
 
-                                                            SELECT sem_emp.sem_id AS req_id, sem_emp.chair_status AS chair_stat, sem_emp.dean_status AS dean_stat, sem_emp.vpar_status AS vpar_stat, sem_emp.hr_status AS hr_stat, sem_emp.md_status AS md_stat, sem_emp.email, mustattend.title, mustattend.category, mustattend.venue, mustattend.dates FROM sem_emp INNER JOIN mustattend ON sem_emp.sem_id = mustattend.mas_id WHERE email !='$email' $filterCollege ORDER BY sem_emp.sem_id DESC");
+                                                            SELECT sem_emp.sem_id AS req_id, sem_emp.chair_status AS chair_stat, sem_emp.dean_status AS dean_stat, sem_emp.vpar_status AS vpar_stat, sem_emp.hr_status AS hr_stat, sem_emp.md_status AS md_stat, sem_emp.email, mustattend.title, mustattend.category, mustattend.venue, mustattend.start_date, mustattend.end_date FROM sem_emp INNER JOIN mustattend ON sem_emp.sem_id = mustattend.mas_id WHERE email !='$email' $filterCollege ORDER BY sem_emp.sem_id DESC");
 
                                                         while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
@@ -172,7 +172,7 @@ $conn = mysqli_connect("localhost","root","","efs");
                                                             $md_stat = $row['md_stat'];
                                                             $reqEmail = $row['email'];
                                                             $reqid = $row['req_id'];
-                                                            $dates = $row['dates'];
+                                                            $dates = $row['start_date'];
 
                                                             $title = $row['title'];
                                                             $category = $row['category'];
@@ -188,7 +188,7 @@ $conn = mysqli_connect("localhost","root","","efs");
                                                                 $thisPos = $row['usertype_id'];
                                                             }
 
-                                                            
+
 
                                                             if($logUser=="chair"){
                                                                 if($thisPos=="faculty"){
@@ -284,7 +284,7 @@ $conn = mysqli_connect("localhost","root","","efs");
                                                                                     echo '<div class="status status-success">Application Approved. <i class="fa fa-check"></i></div>';
                                                                                 }else{
                                                                                     echo '<div class="status status-warning">Waiting for MD\'s approval <i class="fa fa-sign-out"></div>';
-                                                                                }       
+                                                                                }
                                                                             }else{
                                                                                 echo '<div class="status status-warning">Waiting for HR\'s Verification <i class="fa fa-sign-out"></div>';
                                                                             }
@@ -303,7 +303,7 @@ $conn = mysqli_connect("localhost","root","","efs");
 
                                                         ?>
 
-                                                       
+
 
                                                     </tbody>
 
@@ -321,7 +321,7 @@ $conn = mysqli_connect("localhost","root","","efs");
 
                                 <div class="tab-pane fade" id="inHouse">
 
-                                    
+
 
                                 </div>
 
@@ -398,7 +398,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
 
                                                          $result = mysqli_query($conn, "
 
-                                                            SELECT 
+                                                            SELECT
                                                             sem_emp.id AS req_id,
                                                             sem_emp.sem_id AS sem_id,
                                                             sem_emp.chair_status AS chair_stat,
@@ -407,7 +407,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                                             sem_emp.hr_status AS hr_stat,
                                                             sem_emp.md_status AS md_stat,
                                                             sem_emp.email, mustattend.title,
-                                                            mustattend.category, mustattend.venue, mustattend.dates
+                                                            mustattend.category, mustattend.venue, mustattend.start_date, mustattend.end_date
 
                                                             FROM sem_emp
                                                             INNER JOIN mustattend
@@ -429,7 +429,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                                             $reqEmail = $row['email'];
                                                             $reqid = $row['req_id'];
                                                             $masid = $row['sem_id'];
-                                                            $dates = $row['dates'];
+                                                            $dates = $row['start_date'];
 
                                                             $title = $row['title'];
                                                             $category = $row['category'];
@@ -479,7 +479,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                                         echo '<div class="status status-success">Application Approved. <i class="fa fa-check"></i></div>';
                                                     }else{
                                                         echo '<div class="status status-warning">Waiting for MD\'s approval <i class="fa fa-sign-out"></div>';
-                                                    }       
+                                                    }
                                                 }else{
                                                     echo '<div class="status status-warning">Waiting for HR\'s approval <i class="fa fa-sign-out"></div>';
                                                 }
@@ -495,7 +495,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
 
                                                             echo '</td>';
                                                             echo '<td>';
-                                
+
                                                         echo $chronoDate = chrono(date("Y-m-d"),$dates)." ".$suffix;
                                                         echo '</td>';
 
@@ -566,7 +566,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
 
                                 <div class="tab-pane fade" id="inHouse">
 
-                                    
+
 
                                 </div>
 
@@ -579,7 +579,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                     </div>
                 </div>
 
-            </div>    
+            </div>
 
 
 
@@ -718,7 +718,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
             $(document).on('click','#btn-approve', function(){
                 var reqid = selected_reqid;
                 console.log(reqid);
-                
+
                 // var reqid = $(this).closest('.reqRow').data('id');
                 var position = $("#position").val();
                 $.get("action/approve.php",{
@@ -762,4 +762,3 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
 
 
 </html>
-

@@ -6,103 +6,103 @@ require('mc_table.php');
 
 $masComp = "
 (
-	(masbreakdown.deanHotel * 
+	(masbreakdown.deanHotel *
      					(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND user_types.user = 'dean'
 						AND sem_emp.email = user_account.email)
-    ) + (masbreakdown.chairHotel * 
+    ) + (masbreakdown.chairHotel *
          				(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND user_types.user = 'chair'
 						AND sem_emp.email = user_account.email)
-    ) + (masbreakdown.facultyHotel * 
+    ) + (masbreakdown.facultyHotel *
     					(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND user_types.user = 'faculty'
-						AND sem_emp.email = user_account.email)  
+						AND sem_emp.email = user_account.email)
     )
 +
-	(masbreakdown.deanDiem * 
+	(masbreakdown.deanDiem *
      					(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND user_types.user = 'dean'
 						AND sem_emp.email = user_account.email)
-    ) + (masbreakdown.chairDiem * 
+    ) + (masbreakdown.chairDiem *
          				(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND user_types.user = 'chair'
 						AND sem_emp.email = user_account.email)
-    ) + (masbreakdown.facultyDiem * 
+    ) + (masbreakdown.facultyDiem *
          				(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND user_types.user = 'faculty'
 						AND sem_emp.email = user_account.email)
     )
 
 +
-	(masbreakdown.regDean * 
+	(masbreakdown.regDean *
      					(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND user_types.user = 'dean'
 						AND sem_emp.email = user_account.email)
-    ) + (masbreakdown.regChair * 
+    ) + (masbreakdown.regChair *
          				(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND user_types.user = 'chair'
 						AND sem_emp.email = user_account.email)
-    ) + (masbreakdown.regFaculty * 
+    ) + (masbreakdown.regFaculty *
          				(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND user_types.user = 'faculty'
 						AND sem_emp.email = user_account.email)
     )
- 
+
 +
-	(masbreakdown.transpoDean * 
+	(masbreakdown.transpoDean *
      					(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND user_types.user = 'dean'
 						AND sem_emp.email = user_account.email)
-    ) + (masbreakdown.transpoChair * 
+    ) + (masbreakdown.transpoChair *
          				(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND account.usertype = 'chair'
 						AND sem_emp.email = user_account.email)
-    ) + (masbreakdown.transpoFaculty * 
+    ) + (masbreakdown.transpoFaculty *
          				(SELECT COUNT(sem_emp.email) AS ROWS
-						FROM sem_emp, user_account 
-						WHERE attended = 'yes' 
-						AND sem_id = mustattend.mas_id 
+						FROM sem_emp, user_account
+						WHERE attended = 'yes'
+						AND sem_id = mustattend.mas_id
                         AND account.usertype = 'faculty'
 						AND sem_emp.email = user_account.email)
     )
 
 ) AS budget,";
 $conn = mysqli_connect("localhost","root","","efsdpv2");
-$result = mysqli_query($conn, "SELECT sem_emp.sem_id AS req_id, sem_emp.chair_status AS chair_stat, sem_emp.dean_status AS dean_stat, sem_emp.vpar_status AS vpar_stat, sem_emp.hr_status AS hr_stat, sem_emp.md_status AS md_stat, sem_emp.email, mustattend.title, mustattend.category, mustattend.venue, mustattend.dates FROM sem_emp INNER JOIN mustattend ON sem_emp.sem_id = mustattend.mas_id WHERE email != '".$_SESSION['username']."'ORDER BY sem_emp.sem_id DESC");
+$result = mysqli_query($conn, "SELECT sem_emp.sem_id AS req_id, sem_emp.chair_status AS chair_stat, sem_emp.dean_status AS dean_stat, sem_emp.vpar_status AS vpar_stat, sem_emp.hr_status AS hr_stat, sem_emp.md_status AS md_stat, sem_emp.email, mustattend.title, mustattend.category, mustattend.venue, mustattend.start_date, mustattend.end_date FROM sem_emp INNER JOIN mustattend ON sem_emp.sem_id = mustattend.mas_id WHERE email != '".$_SESSION['username']."'ORDER BY sem_emp.sem_id DESC");
 
 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
 
@@ -169,7 +169,7 @@ function overall(){
 		    $this->Ln();
 		    foreach($data as $row)
 		    {
-		        
+
 			    $this->Cell(47,6,$row['title'],1);
 			    $this->Cell(47,6,$row['attended'],1);
 			    $this->Cell(47,6,$row['percentage'],1);
@@ -185,7 +185,7 @@ function overall(){
 	$allSc = mysqli_query($conn, "SELECT school FROM faith_school");
 	while($rows=mysqli_fetch_assoc($allSc)){
 		$school = $rows['school'];
-	
+
 		$allMa = mysqli_query($conn, "SELECT * FROM mustattend WHERE academicyear = '$ay' AND department = '".$_SESSION['college']."' ORDER BY title");
 		if(mysqli_num_rows($allMa)!=0){
 			$ma = array();
@@ -199,14 +199,14 @@ function overall(){
 				$checkAttended = mysqli_query($conn, "
 					SELECT * FROM sem_emp
 					INNER JOIN user_account
-					ON sem_emp.email = user_account.email		
-					WHERE sem_emp.attended = 'yes' 
-					AND sem_emp.sem_id = '$masId' 
+					ON sem_emp.email = user_account.email
+					WHERE sem_emp.attended = 'yes'
+					AND sem_emp.sem_id = '$masId'
 					");
 				$attended = mysqli_num_rows($checkAttended);
 
 				$maDetails = mysqli_query($conn, "
-					SELECT * FROM mustattend 
+					SELECT * FROM mustattend
 					INNER JOIN mas_breakdown
 					ON mustattend.mas_id = mas_breakdown.mas_list_id
 					WHERE mustattend.mas_id='$masId'
@@ -214,7 +214,7 @@ function overall(){
 
 				if(mysqli_num_rows($maDetails)!=0){
 					while($rows=mysqli_fetch_assoc($maDetails))
-					{	
+					{
 						$numDean = $rows['numofdean'];
 						$numChair = $rows['numofchair'];
 						$numFac = $rows['numoffaculty'];
@@ -304,7 +304,7 @@ function perCollege($masComp){
 		    $this->Ln();
 		    foreach($data as $row)
 		    {
-		        
+
 			    $this->Cell(80,6,$row['title'],1);
 			    $this->Cell(60,6,$row['attended'],1);
 			    $this->Cell(60,6,$row['percentage'],1);
@@ -327,7 +327,7 @@ function perCollege($masComp){
 	while($rows=mysqli_fetch_assoc($allSc)){
 		$school = $rows['abbr'];
 		$dept = $rows['department'];
-	
+
 		$ma = array();
 		$totalA = 0;
 		$totalP = 0;
@@ -336,9 +336,9 @@ function perCollege($masComp){
 		$budget = 0;
 
 		$allMa = mysqli_query($conn, "
-			SELECT * FROM mustattend,mas_breakdown 
-			WHERE mustattend.academicyear = '$ay' 
-			AND mustattend.department = '$school' 
+			SELECT * FROM mustattend,mas_breakdown
+			WHERE mustattend.academicyear = '$ay'
+			AND mustattend.department = '$school'
 			AND mustattend.mas_id = mas_breakdown.mas_list_id
 			ORDER BY title");
 		if(mysqli_num_rows($allMa)!=0){
@@ -348,12 +348,12 @@ function perCollege($masComp){
 				$checkAttended = mysqli_query($conn, "
 					SELECT * FROM sem_emp
 					INNER JOIN user_account
-					ON sem_emp.email = user_account.email		
-					WHERE sem_emp.attended = 'yes' 
-					AND sem_emp.sem_id = '$masId' 
+					ON sem_emp.email = user_account.email
+					WHERE sem_emp.attended = 'yes'
+					AND sem_emp.sem_id = '$masId'
 					");
 				$attended = mysqli_num_rows($checkAttended);
-				
+
 				$numDean = $rows['numofdean'];
 				$numChair = $rows['numofchair'];
 				$numFac = $rows['numoffaculty'];
@@ -361,12 +361,12 @@ function perCollege($masComp){
 
 				//mas budget
 				$getMasBudget = mysqli_query($conn, "
-					SELECT  mustattend.masid,mustattend.title, 
-					
+					SELECT  mustattend.masid,mustattend.title,
+
 					$masComp
 
 					mas_proposed.actual
-					FROM mustattend 
+					FROM mustattend
 					INNER JOIN masbreakdown
 					ON mustattend.masid = masbreakdown.masid
 		            INNER JOIN mas_proposed
@@ -456,7 +456,7 @@ function perCollege($masComp){
 }
 
 function perSeminar($masComp){
-	
+
 	$sc = array();
 	$ay = '2016-2017';
 
@@ -481,14 +481,14 @@ function perSeminar($masComp){
 						$totalBudget = 0;
 						$totalActual = 0;
 						$getMasBudget = mysqli_query($conn, "
-							SELECT  mustattend.mas_id,mustattend.title, 
-								
+							SELECT  mustattend.mas_id,mustattend.title,
+
 							$masComp
 
 							(mas_breakdown.numofdean + mas_breakdown.numofchair + mas_breakdown.numoffaculty)
 							AS actual_persons,
-							mas_proposed.actual, mustattend.venue, mustattend.dates
-							FROM mustattend 
+							mas_proposed.actual, mustattend.venue, mustattend.start_date, mustattend.end_date
+							FROM mustattend
 							INNER JOIN masbreakdown
 							ON mustattend.mas_id = mas_breakdown.mas_list_id
 				            INNER JOIN mas_proposed
@@ -506,21 +506,21 @@ function perSeminar($masComp){
 								$masid = $rows['masid'];
 								$title = $rows['title'];
 								$venue = $rows['venue'];
-								$date = $rows['dates'];
+								$date = $rows['start_date'];
 								$actual_persons = $rows['actual_persons'];
 								$budget = $rows['budget'];
 								$actual = $rows['actual'];
 
 								$getAttendees = mysqli_query($conn, "
-									SELECT sem_emp.email,user_types.user AS position,sem_emp.attended, 
-									CONCAT(user_profile.firstname,' ',user_profile.lastname) as name, 
+									SELECT sem_emp.email,user_types.user AS position,sem_emp.attended,
+									CONCAT(user_profile.firstname,' ',user_profile.lastname) as name,
 									CONCAT(user_profile.dept_id, ' ',profile.designation) as position
 									FROM sem_emp
 									INNER JOIN user_account
 									ON sem_emp.email = user_account.email
 									INNER JOIN user_profile
 									ON account.email = user_profile.email
-									WHERE sem_id = '$masid' 
+									WHERE sem_id = '$masid'
 									INNER JOIN user_profile
 									ON user_profile.dept_id = faith_department.id
 								");
@@ -585,7 +585,7 @@ function perSeminar($masComp){
 								"totalActualCollege" => $totalActualCollege,
 								"ma" => $ma,
 							);
-						
+
 							$allBudget += $totalBudget;
 							$allActual += $totalActual;
 					}
@@ -601,7 +601,7 @@ function perSeminar($masComp){
 
 
 		header('content-type: application/json');
-		// echo json_encode($sc);	
+		// echo json_encode($sc);
 
 		$rh = 8;
 		// $rtr = 10;
@@ -666,14 +666,14 @@ function perSeminar($masComp){
 						$totalBudget = 0;
 						$totalActual = 0;
 						$getMasBudget = mysqli_query($conn, "
-							SELECT  mustattend.mas_id,mustattend.title, 
-								
+							SELECT  mustattend.mas_id,mustattend.title,
+
 							$masComp
 
 							(mas_breakdown.numofdean + mas_breakdown.numofchair + mas_breakdown.numoffaculty)
 							AS actual_persons,
-							mas_proposed.actual, mustattend.venue, mustattend.dates
-							FROM mustattend 
+							mas_proposed.actual, mustattend.venue, mustattend.start_date
+							FROM mustattend
 							INNER JOIN masbreakdown
 							ON mustattend.mas_id = masbreakdown.mas_list_id
 				            INNER JOIN mas_proposed
@@ -691,14 +691,14 @@ function perSeminar($masComp){
 								$masid = $rows['mas_id'];
 								$title = $rows['title'];
 								$venue = $rows['venue'];
-								$date = $rows['dates'];
+								$date = $rows['start_date'];
 								$actual_persons = $rows['actual_persons'];
 								$budget = $rows['budget'];
 								$actual = $rows['actual'];
 
 								$getAttendees = mysqli_query($conn, "
-									SELECT sem_emp.email, user_type.user AS position,sem_emp.attended, 
-									CONCAT(user_profile.firstname,' ',user_profile.lastname) as name, 
+									SELECT sem_emp.email, user_type.user AS position,sem_emp.attended,
+									CONCAT(user_profile.firstname,' ',user_profile.lastname) as name,
 									CONCAT(user_profile.college, ' ',user_profile.designation) as position
 									FROM sem_emp
 									INNER JOIN user_account
@@ -766,7 +766,7 @@ function perSeminar($masComp){
 								"totalActualCollege" => $totalActualCollege,
 								"ma" => $ma,
 							);
-						
+
 							$allBudget += $totalBudget;
 							$allActual += $totalActual;
 					}
@@ -782,7 +782,7 @@ function perSeminar($masComp){
 
 
 		header('content-type: application/json');
-		// echo json_encode($sc);	
+		// echo json_encode($sc);
 
 		$rh = 8;
 		// $rtr = 10;
@@ -888,14 +888,14 @@ function perCollege2(){
 							$checkAttended = mysqli_query($conn, "
 								SELECT * FROM sem_emp
 								INNER JOIN user_account
-								ON sem_emp.email = user_account.email		
-								WHERE sem_emp.attended = 'yes' 
-								AND sem_emp.sem_id = '$masId' 
+								ON sem_emp.email = user_account.email
+								WHERE sem_emp.attended = 'yes'
+								AND sem_emp.sem_id = '$masId'
 								");
 							$attended = mysqli_num_rows($checkAttended);
 
 							$maDetails = mysqli_query($conn, "
-								SELECT * FROM mustattend 
+								SELECT * FROM mustattend
 								INNER JOIN mas_breakdown
 								ON mustattend.mas_id = masbreakdown.mas_list_id
 								WHERE mustattend.mas_id='$masId'
@@ -903,7 +903,7 @@ function perCollege2(){
 
 							if(mysqli_num_rows($maDetails)!=0){
 								while($rows=mysqli_fetch_assoc($maDetails))
-								{	
+								{
 									$numDean = $rows['numofdean'];
 									$numChair = $rows['numofchair'];
 									$numFac = $rows['numoffaculty'];
@@ -993,7 +993,7 @@ function perCollege2(){
 		    foreach($sc as $s)
 		    {
 		    	$tsAll = 0;
-		    	
+
 		    	foreach($s['college'] as $c){
 
 		    		if($superAllP!=0){
@@ -1061,9 +1061,9 @@ function perCollege2(){
 							$checkAttended = mysqli_query($conn, "
 								SELECT * FROM sem_emp
 								INNER JOIN user_account
-								ON sem_emp.email = user_account.email		
-								WHERE sem_emp.attended = 'yes' 
-								AND sem_emp.sem_id = '$masId' 
+								ON sem_emp.email = user_account.email
+								WHERE sem_emp.attended = 'yes'
+								AND sem_emp.sem_id = '$masId'
 								");
 							$attended = mysqli_num_rows($checkAttended);
 
@@ -1071,7 +1071,7 @@ function perCollege2(){
 
 							if(mysqli_num_rows($maDetails)!=0){
 								($rows=mysqli_fetch_assoc($maDetails))
-								{	
+								{
 									$numDean = $rows['numofdean'];
 									$numChair = $rows['numofchair'];
 									$numFac = $rows['numoffaculty'];
@@ -1167,7 +1167,7 @@ function perCollege2(){
 		    	$pdf->SetFillColor(200,200,200);
 		    	$pdf->Cell($cellW+200,$cellH,$short,1,'','C',true);
 		    	$pdf->Ln();
-		    	
+
 		    	foreach($s['college'] as $c){
 		    		if($superAllP!=0){
 			    		$perP = ($c['totalP']/$superAllP)*100;
@@ -1278,12 +1278,12 @@ function compBudget($masComp){
 
 					//mas
 					$getMasBudget = mysql_query("
-						SELECT  mustattend.masid,mustattend.title, 
-						
+						SELECT  mustattend.masid,mustattend.title,
+
 						$masComp
 
 						mas_proposed.actual
-						FROM mustattend 
+						FROM mustattend
 						INNER JOIN masbreakdown
 						ON mustattend.masid = masbreakdown.masid
 			            INNER JOIN mas_proposed
@@ -1299,10 +1299,10 @@ function compBudget($masComp){
 							$actual = $rows['actual'];
 
 							$getAttendees = mysql_query("
-								SELECT sem_emp.email,account.usertype AS position,sem_emp.attended 
-								FROM sem_emp, account 
-								WHERE attended = 'yes' 
-								AND sem_id = '$masid' 
+								SELECT sem_emp.email,account.usertype AS position,sem_emp.attended
+								FROM sem_emp, account
+								WHERE attended = 'yes'
+								AND sem_id = '$masid'
 								AND sem_emp.email = account.email
 							");
 							$attendees = array();
@@ -1332,99 +1332,99 @@ function compBudget($masComp){
 
 					//othermas
 					$getOtherMasBudget = mysql_query("
-						SELECT  othersem.otherSem_id,othersem.title, 
-						
+						SELECT  othersem.otherSem_id,othersem.title,
+
 						(
-							(othersembreakdown.deanHotel * 
+							(othersembreakdown.deanHotel *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.chairHotel * 
+						    ) + (othersembreakdown.chairHotel *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.facultyHotel * 
+						    ) + (othersembreakdown.facultyHotel *
 						    					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
-												AND sem_emp.email = account.email)  
+												AND sem_emp.email = account.email)
 						    )
 						+
-							(othersembreakdown.deanDiem * 
+							(othersembreakdown.deanDiem *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.chairDiem * 
+						    ) + (othersembreakdown.chairDiem *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.facultyDiem * 
+						    ) + (othersembreakdown.facultyDiem *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
 
 						+
-							(othersembreakdown.regDean * 
+							(othersembreakdown.regDean *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.regChair * 
+						    ) + (othersembreakdown.regChair *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.regFaculty * 
+						    ) + (othersembreakdown.regFaculty *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
-						 
+
 						+
-							(othersembreakdown.transpoDean * 
+							(othersembreakdown.transpoDean *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.transpoChair * 
+						    ) + (othersembreakdown.transpoChair *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.transpoFaculty * 
+						    ) + (othersembreakdown.transpoFaculty *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
@@ -1432,7 +1432,7 @@ function compBudget($masComp){
 						) AS budget,
 
 						othersem_proposed.actual
-						FROM othersem 
+						FROM othersem
 						INNER JOIN othersembreakdown
 						ON othersem.otherSem_id = othersembreakdown.otherSem_id
 			            INNER JOIN othersem_proposed
@@ -1448,10 +1448,10 @@ function compBudget($masComp){
 							$otheractual = $rows['actual'];
 
 							$getAttendees = mysql_query("
-								SELECT sem_emp.email,account.usertype AS position,sem_emp.attended 
-								FROM sem_emp, account 
-								WHERE attended = 'yes' 
-								AND sem_id = '$othersem_id' 
+								SELECT sem_emp.email,account.usertype AS position,sem_emp.attended
+								FROM sem_emp, account
+								WHERE attended = 'yes'
+								AND sem_id = '$othersem_id'
 								AND sem_emp.email = account.email
 							");
 							$attendees = array();
@@ -1494,7 +1494,7 @@ function compBudget($masComp){
 						"totalActualCollegeOther" => $totalActualCollegeOther,
 						"ma" => $ma,
 					);
-					
+
 					//mas
 					$allBudget += $totalBudget;
 					$allActual += $totalActual;
@@ -1558,7 +1558,7 @@ function compBudget($masComp){
 		    	$totalProposedSchool = $s['totalProposedSchool'];
 		    	$totalActualSchool = $s['totalActualSchool'];
 		    	$totalVarianceSchool = $totalProposedSchool - $totalActualSchool;
-		    	
+
 		    	$totalVarianceCollege = 0;
 		    	$superDuperTotalProposedCollege = 0;
 		    	$superDuperTotalActualCollege = 0;
@@ -1583,7 +1583,7 @@ function compBudget($masComp){
 		    		}
 
 		    		if($perCollege>100){
-		    			$perCollege = ($perCollege-100)*-1;	
+		    			$perCollege = ($perCollege-100)*-1;
 		    		}
 
 		    		$totalVarianceCollege = $superTotalProposedCollege - $superTotalActualCollege;
@@ -1607,7 +1607,7 @@ function compBudget($masComp){
 		    	}
 
 		    	if($perSchool>100){
-		    		$perSchool = ($perSchool-100)*-1;	
+		    		$perSchool = ($perSchool-100)*-1;
 		    	}
 
 		    	$superAllProposed += $totalProposedSchool;
@@ -1656,7 +1656,7 @@ function compBudget($masComp){
 					$abbr = $rows['abbr'];
 
 
-					
+
 					//mas
 					$ma = array();
 					$totalBudget = 0;
@@ -1674,12 +1674,12 @@ function compBudget($masComp){
 
 					//mas
 					$getMasBudget = mysql_query("
-						SELECT  mustattend.masid,mustattend.title, 
-						
+						SELECT  mustattend.masid,mustattend.title,
+
 						$masComp
 
 						mas_proposed.actual
-						FROM mustattend 
+						FROM mustattend
 						INNER JOIN masbreakdown
 						ON mustattend.masid = masbreakdown.masid
 			            INNER JOIN mas_proposed
@@ -1695,10 +1695,10 @@ function compBudget($masComp){
 							$actual = $rows['actual'];
 
 							$getAttendees = mysql_query("
-								SELECT sem_emp.email,account.usertype AS position,sem_emp.attended 
-								FROM sem_emp, account 
-								WHERE attended = 'yes' 
-								AND sem_id = '$masid' 
+								SELECT sem_emp.email,account.usertype AS position,sem_emp.attended
+								FROM sem_emp, account
+								WHERE attended = 'yes'
+								AND sem_id = '$masid'
 								AND sem_emp.email = account.email
 							");
 							$attendees = array();
@@ -1728,99 +1728,99 @@ function compBudget($masComp){
 
 					//othermas
 					$getOtherMasBudget = mysql_query("
-						SELECT  othersem.otherSem_id,othersem.title, 
-						
+						SELECT  othersem.otherSem_id,othersem.title,
+
 						(
-							(othersembreakdown.deanHotel * 
+							(othersembreakdown.deanHotel *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.chairHotel * 
+						    ) + (othersembreakdown.chairHotel *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.facultyHotel * 
+						    ) + (othersembreakdown.facultyHotel *
 						    					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
-												AND sem_emp.email = account.email)  
+												AND sem_emp.email = account.email)
 						    )
 						+
-							(othersembreakdown.deanDiem * 
+							(othersembreakdown.deanDiem *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.chairDiem * 
+						    ) + (othersembreakdown.chairDiem *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.facultyDiem * 
+						    ) + (othersembreakdown.facultyDiem *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
 
 						+
-							(othersembreakdown.regDean * 
+							(othersembreakdown.regDean *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.regChair * 
+						    ) + (othersembreakdown.regChair *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.regFaculty * 
+						    ) + (othersembreakdown.regFaculty *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
-						 
+
 						+
-							(othersembreakdown.transpoDean * 
+							(othersembreakdown.transpoDean *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.transpoChair * 
+						    ) + (othersembreakdown.transpoChair *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.transpoFaculty * 
+						    ) + (othersembreakdown.transpoFaculty *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
@@ -1828,7 +1828,7 @@ function compBudget($masComp){
 						) AS budget,
 
 						othersem_proposed.actual
-						FROM othersem 
+						FROM othersem
 						INNER JOIN othersembreakdown
 						ON othersem.otherSem_id = othersembreakdown.otherSem_id
 			            INNER JOIN othersem_proposed
@@ -1844,10 +1844,10 @@ function compBudget($masComp){
 							$otheractual = $rows['actual'];
 
 							$getAttendees = mysql_query("
-								SELECT sem_emp.email,account.usertype AS position,sem_emp.attended 
-								FROM sem_emp, account 
-								WHERE attended = 'yes' 
-								AND sem_id = '$othersem_id' 
+								SELECT sem_emp.email,account.usertype AS position,sem_emp.attended
+								FROM sem_emp, account
+								WHERE attended = 'yes'
+								AND sem_id = '$othersem_id'
 								AND sem_emp.email = account.email
 							");
 							$attendees = array();
@@ -1890,7 +1890,7 @@ function compBudget($masComp){
 						"totalActualCollegeOther" => $totalActualCollegeOther,
 						"ma" => $ma,
 					);
-					
+
 					//mas
 					$allBudget += $totalBudget;
 					$allActual += $totalActual;
@@ -1961,7 +1961,7 @@ function compBudget($masComp){
 		    	$pdf->SetFillColor(200,200,200);
 		    	$pdf->Cell(275,10,$short,1,'','C',true);
 		    	$pdf->Ln();
-		    	
+
 		    	$totalVarianceCollege = 0;
 		    	$superDuperTotalProposedCollege = 0;
 		    	$superDuperTotalActualCollege = 0;
@@ -1986,7 +1986,7 @@ function compBudget($masComp){
 		    		}
 
 		    		if($perCollege>100){
-		    			$perCollege = ($perCollege-100)*-1;	
+		    			$perCollege = ($perCollege-100)*-1;
 		    		}
 
 		    		$totalVarianceCollege = $superTotalProposedCollege - $superTotalActualCollege;
@@ -2011,7 +2011,7 @@ function compBudget($masComp){
 		    	}
 
 		    	if($perSchool>100){
-		    		$perSchool = ($perSchool-100)*-1;	
+		    		$perSchool = ($perSchool-100)*-1;
 		    	}
 
 		    	$pdf->Cell(40,$cellH,'Subtotal',1,'','R');
@@ -2082,96 +2082,96 @@ function others(){
 				$getOthersBudget = mysql_query("
 					SELECT  othersem.otherSem_id,othersem.title, CONCAT(profile.firstname, ' ',profile.lastname) as name,
 					(
-						(othersembreakdown.deanHotel * 
+						(othersembreakdown.deanHotel *
 					     					(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
-											AND sem_id = othersem.otherSem_id 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
+											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'dean'
 											AND sem_emp.email = account.email)
-					    ) + (othersembreakdown.chairHotel * 
+					    ) + (othersembreakdown.chairHotel *
 					         				(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
-											AND sem_id = othersem.otherSem_id 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
+											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'chair'
 											AND sem_emp.email = account.email)
-					    ) + (othersembreakdown.facultyHotel * 
+					    ) + (othersembreakdown.facultyHotel *
 					    					(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
-											AND sem_id = othersem.otherSem_id 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
+											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'faculty'
-											AND sem_emp.email = account.email)  
+											AND sem_emp.email = account.email)
 					    )
 					+
-						(othersembreakdown.deanDiem * 
+						(othersembreakdown.deanDiem *
 					     					(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
 											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'dean'
 											AND sem_emp.email = account.email)
-					    ) + (othersembreakdown.chairDiem * 
+					    ) + (othersembreakdown.chairDiem *
 					         				(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
 											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'chair'
 											AND sem_emp.email = account.email)
-					    ) + (othersembreakdown.facultyDiem * 
+					    ) + (othersembreakdown.facultyDiem *
 					         				(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
 											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'faculty'
 											AND sem_emp.email = account.email)
 					    )
 
 					+
-						(othersembreakdown.regDean * 
+						(othersembreakdown.regDean *
 					     					(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
 											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'dean'
 											AND sem_emp.email = account.email)
-					    ) + (othersembreakdown.regChair * 
+					    ) + (othersembreakdown.regChair *
 					         				(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
 											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'chair'
 											AND sem_emp.email = account.email)
-					    ) + (othersembreakdown.regFaculty * 
+					    ) + (othersembreakdown.regFaculty *
 					         				(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
 											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'faculty'
 											AND sem_emp.email = account.email)
 					    )
-					 
+
 					+
-						(othersembreakdown.transpoDean * 
+						(othersembreakdown.transpoDean *
 					     					(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
-											AND sem_id = othersem.otherSem_id 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
+											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'dean'
 											AND sem_emp.email = account.email)
-					    ) + (othersembreakdown.transpoChair * 
+					    ) + (othersembreakdown.transpoChair *
 					         				(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
-											AND sem_id = othersem.otherSem_id 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
+											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'chair'
 											AND sem_emp.email = account.email)
-					    ) + (othersembreakdown.transpoFaculty * 
+					    ) + (othersembreakdown.transpoFaculty *
 					         				(SELECT COUNT(sem_emp.email) AS ROWS
-											FROM sem_emp, account 
-											WHERE attended = 'yes' 
-											AND sem_id = othersem.otherSem_id 
+											FROM sem_emp, account
+											WHERE attended = 'yes'
+											AND sem_id = othersem.otherSem_id
 					                        AND account.usertype = 'faculty'
 											AND sem_emp.email = account.email)
 					    )
@@ -2179,7 +2179,7 @@ function others(){
 					) AS budget,
 
 					othersem_proposed.actual
-					FROM othersem 
+					FROM othersem
 					INNER JOIN othersembreakdown
 					ON othersem.otherSem_id = othersembreakdown.otherSem_id
 		            INNER JOIN othersem_proposed
@@ -2196,7 +2196,7 @@ function others(){
 						$title = $rows['title'];
 						$otherbudget = $rows['budget'];
 						$otheractual = $rows['actual'];
-						
+
 						$others[] = array(
 							"seminar" => $rows['title'],
 							"name" => $rows['name'],
@@ -2205,7 +2205,7 @@ function others(){
 						$total += $otherbudget;
 					}
 				}
-			
+
 
 		// header('content-type: application/json');
 		// echo json_encode($others);
@@ -2269,10 +2269,10 @@ function tnaSum(){
 
 				$jrQ = mysql_query("
 						SELECT COUNT(profile.college) AS countFac
-						FROM tna 
-						INNER JOIN profile 
-						ON tna.email = profile.email 
-						WHERE tna.job_role = '$getJob' 
+						FROM tna
+						INNER JOIN profile
+						ON tna.email = profile.email
+						WHERE tna.job_role = '$getJob'
 						AND profile.college = '$abbr'
 					");
 				while($rows=mysql_fetch_assoc($jrQ)){
@@ -2391,8 +2391,8 @@ function tna(){
 		$email = $_GET['email'];
 		$getName = mysql_query("
 			SELECT CONCAT(firstname, ' ', lastname) AS name, faith_department.department, account.usertype
-			FROM profile 
-			INNER JOIN faith_department 
+			FROM profile
+			INNER JOIN faith_department
 			ON profile.college = faith_department.abbr
 			INNER JOIN account
 			ON profile.email = account.email
@@ -2435,7 +2435,7 @@ function tna(){
 			"jrc" => $jrc
 			);
 
-		// header('content-type: application/json'); 
+		// header('content-type: application/json');
 		// echo json_encode($tna);
 
 		$pdf=new MC_TABLE();
@@ -2497,14 +2497,14 @@ function tna(){
 
 				$getAllTna = mysql_query("
 					SELECT evidence
-					FROM tna 
+					FROM tna
 					WHERE department = '$abbr'
-					");	
+					");
 
 				$getAccStat = mysql_query("
 					SELECT evidence
-					FROM tna 
-					WHERE evidence != '' 
+					FROM tna
+					WHERE evidence != ''
 					AND department = '$abbr'
 					");
 
@@ -2623,14 +2623,14 @@ function tna(){
 
 				$getAllTna = mysql_query("
 					SELECT evidence
-					FROM tna 
+					FROM tna
 					WHERE department = '$abbr'
-					");	
+					");
 
 				$getAccStat = mysql_query("
 					SELECT evidence
-					FROM tna 
-					WHERE evidence != '' 
+					FROM tna
+					WHERE evidence != ''
 					AND department = '$abbr'
 					");
 
@@ -2697,7 +2697,7 @@ function tna(){
 		    	$pdf->SetFillColor(200,200,200);
 		    	$pdf->Cell(270,$cellH,$short,1,'','C',true);
 		    	$pdf->Ln();
-		    	
+
 		    	foreach($s['tna'] as $tna){
 
 
@@ -2751,8 +2751,8 @@ function tnaFac(){
 		$email = $_GET['email'];
 		$getName = mysql_query("
 			SELECT CONCAT(firstname, ' ', lastname) AS name, faith_department.department, profile.designation
-			FROM profile 
-			INNER JOIN faith_department 
+			FROM profile
+			INNER JOIN faith_department
 			ON profile.college = faith_department.abbr
 			WHERE profile.email = '$email'
 			");
@@ -2790,7 +2790,7 @@ function tnaFac(){
 			"jrc" => $jrc
 			);
 
-		// header('content-type: application/json'); 
+		// header('content-type: application/json');
 		// echo json_encode($tna);
 
 		$pdf = new MC_TABLE();
@@ -2849,9 +2849,9 @@ function tnaFac(){
 		$totalAcc = 0;
 		$allC = mysql_query("
 			SELECT DISTINCT tna.email, CONCAT(profile.firstname,' ',profile.lastname) AS name
-			FROM tna 
-			INNER JOIN profile 
-			ON tna.email = profile.email 
+			FROM tna
+			INNER JOIN profile
+			ON tna.email = profile.email
 			WHERE tna.department = '$dept'
 			");
 		while($rows=mysql_fetch_assoc($allC)){
@@ -2860,14 +2860,14 @@ function tnaFac(){
 
 			$getAllTna = mysql_query("
 				SELECT evidence
-				FROM tna 
+				FROM tna
 				WHERE email = '$email'
-				");	
+				");
 
 			$getAccStat = mysql_query("
 				SELECT evidence
-				FROM tna 
-				WHERE evidence != '' 
+				FROM tna
+				WHERE evidence != ''
 				AND email = '$email'
 				");
 
@@ -2893,7 +2893,7 @@ function tnaFac(){
 			"tna" => $tna,
 			);
 
-	
+
 
 		// header('content-type: application/json');
 		// echo json_encode($sc);
@@ -2922,7 +2922,7 @@ function tnaFac(){
 	    $pdf->Cell(45,$cellH,'# of FSDP',1,'','C');
 	    $pdf->Cell(45,$cellH,'% of FSDP',1,'','C');
 	    $pdf->Ln();
-    	
+
     	foreach($sc['tna'] as $tna){
 
 	    	if($totalTna!=0){
@@ -3031,7 +3031,7 @@ function mas(){
 					"category" => $rows['category'],
 					"sponsor" => $rows['sponsor'],
 					"venue" => $rows['venue'],
-					"date" => $rows['dates'],
+					"date" => $rows['start_date'],
 					"days" => $rows['numdays'],
 					"persons" => $persons,
 					"persons_involved" => $p_involved,
@@ -3068,7 +3068,7 @@ function mas(){
 
 		$pdf->SetLeftMargin(15);
 	    $pdf->Ln();
-		
+
 		$pdf->SetFont('Arial','',10);
 		$pdf->SetWidths(array(30,25,20,20,20,32,20,22,20,15,20,20));
 		$pdf->Row(
@@ -3078,7 +3078,7 @@ function mas(){
 				'Transpo','Hotel','Per Diem','Total Cost'
 				),5
 		);
-    	
+
     	foreach($mas as $m){
     		$pdf->SetWidths(array(30,25,20,20,20,32,20,22,20,15,20,20));
     		$pdf->Row(
@@ -3139,12 +3139,12 @@ function fsdp($masComp){
 				$totalCollege = 0;
 
 				$getMasBudget = mysqli_query($conn, "
-					SELECT  mustattend.mas_id,mustattend.title, 
-					
+					SELECT  mustattend.mas_id,mustattend.title,
+
 					$masComp
 
 					mas_proposed.actual
-					FROM mustattend 
+					FROM mustattend
 					INNER JOIN masbreakdown
 					ON mustattend.mas_id = masbreakdown.mas_list_id
 		            INNER JOIN mas_proposed
@@ -3161,10 +3161,10 @@ function fsdp($masComp){
 						$masbudget = $rows['budget'];
 
 						$getAttendees = mysqli_query($conn, "
-							SELECT sem_emp.email,account.usertype AS position,sem_emp.attended 
-							FROM sem_emp, account 
-							WHERE attended = 'yes' 
-							AND sem_id = '$masid' 
+							SELECT sem_emp.email,account.usertype AS position,sem_emp.attended
+							FROM sem_emp, account
+							WHERE attended = 'yes'
+							AND sem_id = '$masid'
 							AND sem_emp.email = account.email
 						");
 
@@ -3209,98 +3209,98 @@ function fsdp($masComp){
 
 					//OTHERS BUDGET
 					$getOthersBudget = mysqli_query($conn, "
-						SELECT  othersem.otherSem_id,othersem.title, 
+						SELECT  othersem.otherSem_id,othersem.title,
 						(
-							(othersembreakdown.deanHotel * 
+							(othersembreakdown.deanHotel *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.chairHotel * 
+						    ) + (othersembreakdown.chairHotel *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.facultyHotel * 
+						    ) + (othersembreakdown.facultyHotel *
 						    					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
-												AND sem_emp.email = account.email)  
+												AND sem_emp.email = account.email)
 						    )
 						+
-							(othersembreakdown.deanDiem * 
+							(othersembreakdown.deanDiem *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.chairDiem * 
+						    ) + (othersembreakdown.chairDiem *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.facultyDiem * 
+						    ) + (othersembreakdown.facultyDiem *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
 
 						+
-							(othersembreakdown.regDean * 
+							(othersembreakdown.regDean *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.regChair * 
+						    ) + (othersembreakdown.regChair *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.regFaculty * 
+						    ) + (othersembreakdown.regFaculty *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
-						 
+
 						+
-							(othersembreakdown.transpoDean * 
+							(othersembreakdown.transpoDean *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.transpoChair * 
+						    ) + (othersembreakdown.transpoChair *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.transpoFaculty * 
+						    ) + (othersembreakdown.transpoFaculty *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
@@ -3308,7 +3308,7 @@ function fsdp($masComp){
 						) AS budget,
 
 						othersem_proposed.actual
-						FROM othersem 
+						FROM othersem
 						INNER JOIN othersembreakdown
 						ON othersem.otherSem_id = othersembreakdown.otherSem_id
 			            INNER JOIN othersem_proposed
@@ -3336,7 +3336,7 @@ function fsdp($masComp){
 						"othersCollege" => $othersCollege,
 						"totalCollege" => $totalCollege
 					);
-				
+
 					// $totalCollege = 0;
 					$masSchool += $masCollege;
 					$tnaSchool += $tnaCollege;
@@ -3428,12 +3428,12 @@ function fsdp($masComp){
 				$totalCollege = 0;
 
 				$getMasBudget = mysqli_query($conn, "
-						SELECT  mustattend.masid,mustattend.title, 
-						
+						SELECT  mustattend.masid,mustattend.title,
+
 						$masComp
 
 						mas_proposed.actual
-						FROM mustattend 
+						FROM mustattend
 						INNER JOIN masbreakdown
 						ON mustattend.masid = masbreakdown.masid
 			            INNER JOIN mas_proposed
@@ -3450,10 +3450,10 @@ function fsdp($masComp){
 						$masbudget = $rows['budget'];
 
 						$getAttendees = mysqli_query("
-							SELECT sem_emp.email,account.usertype AS position,sem_emp.attended 
-							FROM sem_emp, account 
-							WHERE attended = 'yes' 
-							AND sem_id = '$masid' 
+							SELECT sem_emp.email,account.usertype AS position,sem_emp.attended
+							FROM sem_emp, account
+							WHERE attended = 'yes'
+							AND sem_id = '$masid'
 							AND sem_emp.email = account.email
 						");
 
@@ -3498,98 +3498,98 @@ function fsdp($masComp){
 
 					//OTHERS BUDGET
 					$getOthersBudget = mysql_query("
-						SELECT  othersem.otherSem_id,othersem.title, 
+						SELECT  othersem.otherSem_id,othersem.title,
 						(
-							(othersembreakdown.deanHotel * 
+							(othersembreakdown.deanHotel *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.chairHotel * 
+						    ) + (othersembreakdown.chairHotel *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.facultyHotel * 
+						    ) + (othersembreakdown.facultyHotel *
 						    					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
-												AND sem_emp.email = account.email)  
+												AND sem_emp.email = account.email)
 						    )
 						+
-							(othersembreakdown.deanDiem * 
+							(othersembreakdown.deanDiem *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.chairDiem * 
+						    ) + (othersembreakdown.chairDiem *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.facultyDiem * 
+						    ) + (othersembreakdown.facultyDiem *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
 
 						+
-							(othersembreakdown.regDean * 
+							(othersembreakdown.regDean *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.regChair * 
+						    ) + (othersembreakdown.regChair *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.regFaculty * 
+						    ) + (othersembreakdown.regFaculty *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
 												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
-						 
+
 						+
-							(othersembreakdown.transpoDean * 
+							(othersembreakdown.transpoDean *
 						     					(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'dean'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.transpoChair * 
+						    ) + (othersembreakdown.transpoChair *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'chair'
 												AND sem_emp.email = account.email)
-						    ) + (othersembreakdown.transpoFaculty * 
+						    ) + (othersembreakdown.transpoFaculty *
 						         				(SELECT COUNT(sem_emp.email) AS ROWS
-												FROM sem_emp, account 
-												WHERE attended = 'yes' 
-												AND sem_id = othersem.otherSem_id 
+												FROM sem_emp, account
+												WHERE attended = 'yes'
+												AND sem_id = othersem.otherSem_id
 						                        AND account.usertype = 'faculty'
 												AND sem_emp.email = account.email)
 						    )
@@ -3597,7 +3597,7 @@ function fsdp($masComp){
 						) AS budget,
 
 						othersem_proposed.actual
-						FROM othersem 
+						FROM othersem
 						INNER JOIN othersembreakdown
 						ON othersem.otherSem_id = othersembreakdown.otherSem_id
 			            INNER JOIN othersem_proposed
@@ -3625,7 +3625,7 @@ function fsdp($masComp){
 						"othersCollege" => $othersCollege,
 						"totalCollege" => $totalCollege
 					);
-				
+
 					// $totalCollege = 0;
 					$masSchool += $masCollege;
 					$tnaSchool += $tnaCollege;
@@ -3731,19 +3731,19 @@ function masResearch(){
 		if(isset($_GET['category'])){
 			$cat = $_GET['category'];
 			$q = mysql_query("
-				SELECT * FROM mustattend 
-				INNER JOIN masbreakdown 
-				ON mustattend.masid = masbreakdown.masid 
-				WHERE mustattend.academicyear = '$ay' 
+				SELECT * FROM mustattend
+				INNER JOIN masbreakdown
+				ON mustattend.masid = masbreakdown.masid
+				WHERE mustattend.academicyear = '$ay'
 				AND mustattend.department = '$dept'
 				AND mustattend.category = '$cat'
 				");
 		}else{
 			$q = mysql_query("
-				SELECT * FROM mustattend 
-				INNER JOIN masbreakdown 
-				ON mustattend.masid = masbreakdown.masid 
-				WHERE mustattend.academicyear = '$ay' 
+				SELECT * FROM mustattend
+				INNER JOIN masbreakdown
+				ON mustattend.masid = masbreakdown.masid
+				WHERE mustattend.academicyear = '$ay'
 				AND mustattend.department = '$dept'
 				AND (mustattend.category = 'FACE' OR mustattend.category = 'Research')
 				");
@@ -3800,7 +3800,7 @@ function masResearch(){
 						"category" => $rows['category'],
 						"sponsor" => $rows['sponsor'],
 						"venue" => $rows['venue'],
-						"date" => $rows['dates'],
+						"date" => $rows['start_date'],
 						"days" => $rows['numdays'],
 						"persons" => $persons,
 						"persons_involved" => $p_involved,
@@ -3841,7 +3841,7 @@ function masResearch(){
 		    $pdf->Ln();
 			$pdf->SetFont('Arial','',10);
 
-		    $pdf->Cell(30,$h,'Title','RLT','','C');	
+		    $pdf->Cell(30,$h,'Title','RLT','','C');
 		    $pdf->Cell(30,$h,'Category','RLT','','C');
 		    $pdf->Cell(25,$h,'Sponsor','RLT','','C');
 		    $pdf->Cell(20,$h,'Venue','RLT','','C');
@@ -3871,7 +3871,7 @@ function masResearch(){
 		    $pdf->Cell(20,$h-5,'','RLB','','C');
 		    $pdf->Cell(20,$h-5,'','RLB','','C');
 		    $pdf->Ln();
-	    	
+
 	    	foreach($mas as $m){
 			    $pdf->Cell(30,10,$m['title'],1);
 			    $pdf->Cell(30,10,$m['category'],1);
@@ -3897,7 +3897,7 @@ function masResearch(){
 
 
 			$pdf->Output();
-		
+
 	}else{
 
 		$sc = array();
@@ -3914,31 +3914,31 @@ function masResearch(){
 				$dept_id = $rows['id'];
 				$dept = $rows['department'];
 				$abbr = $rows['abbr'];
-			
+
 			//count seminars
 			$mas = array();
 			if(isset($_GET['category'])){
 				$cat = $_GET['category'];
 				$q2 = mysql_query("
-					SELECT * FROM mustattend 
-					INNER JOIN masbreakdown 
-					ON mustattend.masid = masbreakdown.masid 
-					WHERE mustattend.academicyear = '$ay' 
+					SELECT * FROM mustattend
+					INNER JOIN masbreakdown
+					ON mustattend.masid = masbreakdown.masid
+					WHERE mustattend.academicyear = '$ay'
 					AND mustattend.department = '$abbr'
 					AND mustattend.category = '$cat'
 					");
 			}else{
 				$cat = "FACE/Research";
 				$q2 = mysql_query("
-					SELECT * FROM mustattend 
-					INNER JOIN masbreakdown 
-					ON mustattend.masid = masbreakdown.masid 
-					WHERE mustattend.academicyear = '$ay' 
+					SELECT * FROM mustattend
+					INNER JOIN masbreakdown
+					ON mustattend.masid = masbreakdown.masid
+					WHERE mustattend.academicyear = '$ay'
 					AND mustattend.department = '$abbr'
 					AND (mustattend.category = 'FACE' OR mustattend.category = 'Research')
 					");
 			}
-			
+
 
 				if(mysql_num_rows($q2)!=0){
 					while($rows = mysql_fetch_assoc($q2)){
@@ -3991,7 +3991,7 @@ function masResearch(){
 							"category" => $rows['category'],
 							"sponsor" => $rows['sponsor'],
 							"venue" => $rows['venue'],
-							"date" => $rows['dates'],
+							"date" => $rows['start_date'],
 							"days" => $rows['numdays'],
 							"persons" => $persons,
 							"persons_involved" => $p_involved,
@@ -4047,7 +4047,7 @@ function masResearch(){
 		    		$pdf->Ln();
 
 			    	foreach($s['college'] as $c){
-			    		
+
 		    			$pdf->SetFont('Arial','',16);
 		    			$pdf->Cell(270,10,$c['department'],0,'','C');
 		    			$pdf->Ln();
@@ -4078,12 +4078,12 @@ function masResearch(){
 			    	}
 
 			    }
-		    	
+
 				    // $pdf->SetFont('Arial','B',10);
 				    // $pdf->Cell(246,12,'',0,'','R');
 				    // $pdf->Cell(20,12,'Total','LB','','R');
 				    // $pdf->Cell(20,12,formatNumber($collegeBudget),'RB','','L');
-		    	
+
 
 
 
@@ -4092,4 +4092,3 @@ function masResearch(){
 	}
 }
 ?>
-

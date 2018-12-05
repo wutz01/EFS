@@ -58,9 +58,9 @@ function getSemDept($school){
 			';
 		}
 	}else{
-		echo "<option></option>";	
+		echo "<option></option>";
 	}
-	
+
 }
 
 function getSemEmp($key,$school,$dept){
@@ -77,7 +77,7 @@ function getSemEmp($key,$school,$dept){
 			$qa = mysql_query("SELECT * FROM profile");
 		}
 	}
-	
+
 		if(mysql_num_rows($qa)!=0){
 		echo '<ul class="list-group">';
 			while($rows = mysql_fetch_assoc($qa)){
@@ -114,7 +114,7 @@ function trackEmp($email,$ay){
 		        <div class="panel-heading panel-title">Seminars Attended</div>
 		        <div class="panel-body">
 		            <div class="row">
-		                
+
 		                <div class="col-sm-12">
 		                    <div class="table-responsive">
 		                        <table class="table table-bordered table-hover">
@@ -129,15 +129,15 @@ function trackEmp($email,$ay){
 		                            <tbody>
 		                            <?php
 		                            $q = mysql_query("
-		                                SELECT mustattend.masid,mustattend.title,mustattend.dates,account.usertype,
+		                                SELECT mustattend.masid,mustattend.title,mustattend.start_date,account.usertype,
 		                                (
-		                                    CASE 
+		                                    CASE
 		                                        WHEN sem_emp.type = 'TNA' THEN 'YES'
 		                                        ELSE 'NO'
 		                                    END
 		                                ) as tna
 
-		                                FROM sem_emp 
+		                                FROM sem_emp
 		                                INNER JOIN mustattend
 		                                ON sem_emp.sem_id = mustattend.masid
 		                                INNER JOIN account
@@ -152,7 +152,7 @@ function trackEmp($email,$ay){
 		                                    $masid = $rows['masid'];
 		                                    $title = $rows['title'];
 		                                    $tna = $rows['tna'];
-		                                    $dates = date('M d,Y',strtotime($rows['dates']));
+		                                    $dates = date('M d,Y',strtotime($rows['start_date']));
 
 		                                    if($position=="dean"){
 		                                        $getMyBudget = mysql_query("SELECT (deanHotel + deanDiem + regDean + transpoDean) as my_budget FROM masbreakdown WHERE masid = '$masid'");
@@ -203,7 +203,7 @@ function trackEmp($email,$ay){
 		        <div class="panel-heading panel-title">TNM</div>
 		        <div class="panel-body">
 		            <div class="row">
-		                
+
 		                <div class="col-sm-12">
 		                    <div class="table-responsive">
 		                        <table class="table table-bordered table-hover">
@@ -220,10 +220,10 @@ function trackEmp($email,$ay){
 		                            <tbody>
 		                            <?php
 		                                $q = mysql_query("
-		                                SELECT 
+		                                SELECT
 		                                job_role,position_importance,
 		                                ability,competency,developmentplan,evidence
-		                                FROM tna 
+		                                FROM tna
 		                                WHERE email = '$email'
 		                                AND annualyear = '$ay'
 		                                ");
@@ -242,7 +242,7 @@ function trackEmp($email,$ay){
 			                                    foreach($docs as $doc){
 			                                        echo '<a href="uploads/'.$doc.'" target="_blank">'.$doc.'</a><br>';
 			                                    }
-		                                    	echo '</td>';  
+		                                    	echo '</td>';
 		                                    echo '</tr>';
 		                                }
 		                            }
@@ -282,19 +282,19 @@ function getMas($reqid,$logUser){
 		    ) + (masbreakdown.regChair * masbreakdown.numofchair
 		    ) + (masbreakdown.regFaculty * masbreakdown.numoffaculty
 		    )
-		 
+
 		+
 			(masbreakdown.transpoDean * masbreakdown.numofdean
 		    ) + (masbreakdown.transpoChair * masbreakdown.numofchair
 		    ) + (masbreakdown.transpoFaculty * masbreakdown.numoffaculty
 		    )
 
-		) AS overall_budget 
-		FROM sem_emp 
-		INNER JOIN mustattend 
-		ON sem_emp.sem_id = mustattend.masid 
-		INNER JOIN masbreakdown 
-		ON sem_emp.sem_id = masbreakdown.masid 
+		) AS overall_budget
+		FROM sem_emp
+		INNER JOIN mustattend
+		ON sem_emp.sem_id = mustattend.masid
+		INNER JOIN masbreakdown
+		ON sem_emp.sem_id = masbreakdown.masid
 		WHERE sem_emp.id = '$reqid'
 		");
 	while($rows=mysql_fetch_assoc($q)){
@@ -302,7 +302,7 @@ function getMas($reqid,$logUser){
 		$category = $rows['category'];
 		$sponsor = $rows['sponsor'];
 		$venue = $rows['venue'];
-		$date = $rows['dates'];
+		$date = $rows['start_date'];
 		$days = $rows['numdays'];
 		$budget = $rows['overall_budget'];
 		$echo_sched = $rows['echoSched'];
@@ -472,7 +472,7 @@ function getMas($reqid,$logUser){
                     $approve = "md";
                     if($md_stat==1){
                         $approve = "approve";
-                    }       
+                    }
                 }
             }
         }

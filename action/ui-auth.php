@@ -38,7 +38,7 @@ switch ($logUser) {
 		case 'face':
 		faceUI();
 		break;
-		
+
 		default:
 		header("location: ../login.php?login=failed");
 		break;
@@ -50,7 +50,7 @@ function authSideNav(){
 	    <a href="profile.php">
 	    <div class="row">
 	    	<div class="col-lg-6 col-lg-offset-3 col-xs-12" style="padding-bottom:10px">
-	    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive"> 
+	    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive">
 	    	</div>
 	    	<div class="col-sm-12 text-center">
 	    		<strong>
@@ -74,7 +74,7 @@ function authSideNav(){
 	    <a href="javascript:void(0)" data-toggle="collapse" data-target="#manage"><i class="fa fa-fw fa-book"></i> Manage <i class="fa fa-fw fa-caret-down"></i></a>
 	    <ul id="manage" class="collapse">
 	        <li>
-	            <a href="maList.php">Must-Attend</a>
+	            <a href="ma-list.php">Must-Attend</a>
 	        </li>
 	        <li>
 	            <a href="seminar.php">Seminar</a>
@@ -96,7 +96,7 @@ function chairUI(){
 			    <a href="profile.php">
 			    <div class="row">
 			    	<div class="col-lg-6 col-lg-offset-3 col-xs-12" style="padding-bottom:10px">
-			    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive"> 
+			    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive">
 			    	</div>
 			    	<div class="col-sm-12 text-center">
 			    		<strong>
@@ -114,7 +114,7 @@ function chairUI(){
 	            <a href="javascript:void(0)" data-toggle="collapse" data-target="#manage"><i class="fa fa-fw fa-book"></i> Manage <i class="fa fa-fw fa-caret-down"></i></a>
 	            <ul id="manage" class="collapse">
 	                <li>
-	                    <a href="maList.php">Must-Attend</a>
+	                    <a href="ma-list.php">Must-Attend</a>
 	                </li>
 	                <li>
 	                    <a href="seminar.php">Seminar</a>
@@ -124,7 +124,7 @@ function chairUI(){
 	        <li>
 	            <a href="reportsChair.php"><i class="fa fa-pie-chart"></i> Reports</a>
 	        </li>
-	    
+
 <?php
 }
 
@@ -134,7 +134,7 @@ function facUI(){
 		    <a href="profile.php">
 		    <div class="row">
 		    	<div class="col-lg-6 col-lg-offset-3 col-xs-12" style="padding-bottom:10px">
-		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive"> 
+		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive">
 		    	</div>
 		    	<div class="col-sm-12 text-center">
 		    		<strong>
@@ -168,7 +168,7 @@ function staffUI(){
 		    <a href="profile.php">
 		    <div class="row">
 		    	<div class="col-lg-6 col-lg-offset-3 col-xs-12" style="padding-bottom:10px">
-		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive"> 
+		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive">
 		    	</div>
 		    	<div class="col-sm-12 text-center">
 		    		<strong>
@@ -203,7 +203,7 @@ function deanUI(){
 		    <a href="profile.php">
 		    <div class="row">
 		    	<div class="col-lg-6 col-lg-offset-3 col-xs-12" style="padding-bottom:10px">
-		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive"> 
+		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive">
 		    	</div>
 		    	<div class="col-sm-12 text-center">
 		    		<strong>
@@ -221,7 +221,7 @@ function deanUI(){
             <a href="javascript:void(0)" data-toggle="collapse" data-target="#manage"><i class="fa fa-fw fa-book"></i> Manage <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="manage" class="collapse">
                 <li>
-                    <a href="maListDean.php">Must-Attend</a>
+                    <a href="ma-list.php">Must-Attend</a>
                 </li>
                 <li>
                     <a href="seminar.php">Seminar</a>
@@ -240,7 +240,7 @@ function vparUI(){
 		    <a href="profile.php">
 		    <div class="row">
 		    	<div class="col-lg-6 col-lg-offset-3 col-xs-12" style="padding-bottom:10px">
-		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive"> 
+		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive">
 		    	</div>
 		    	<div class="col-sm-12 text-center">
 		    		<strong>
@@ -258,7 +258,7 @@ function vparUI(){
             <a href="javascript:void(0)" data-toggle="collapse" data-target="#manage"><i class="fa fa-fw fa-book"></i> Manage <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="manage" class="collapse">
                 <li>
-                    <a href="maListVpar.php">Must-Attend</a>
+                    <a href="ma-list.php">Must-Attend</a>
                 </li>
                 <li>
                     <a href="seminar.php">Seminar</a>
@@ -277,7 +277,7 @@ function hrUI(){
 		    <a href="profile.php">
 		    <div class="row">
 		    	<div class="col-lg-6 col-lg-offset-3 col-xs-12" style="padding-bottom:10px">
-		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive"> 
+		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive">
 		    	</div>
 		    	<div class="col-sm-12 text-center">
 		    		<strong>
@@ -295,7 +295,7 @@ function hrUI(){
             <a href="javascript:void(0)" data-toggle="collapse" data-target="#manage"><i class="fa fa-fw fa-book"></i> Manage <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="manage" class="collapse">
                 <li>
-                    <a href="maListHr.php">Must-Attend</a>
+                    <a href="ma-list.php">Must-Attend</a>
                 </li>
                 <li>
                     <a href="seminar.php">Seminar</a>
@@ -337,7 +337,7 @@ function mdUI(){
 		    <a href="profile.php">
 		    <div class="row">
 		    	<div class="col-lg-6 col-lg-offset-3 col-xs-12" style="padding-bottom:10px">
-		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive"> 
+		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive">
 		    	</div>
 		    	<div class="col-sm-12 text-center">
 		    		<strong>
@@ -374,7 +374,7 @@ function researchUI(){
 		    <a href="profile.php">
 		    <div class="row">
 		    	<div class="col-lg-6 col-lg-offset-3 col-xs-12" style="padding-bottom:10px">
-		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive"> 
+		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive">
 		    	</div>
 		    	<div class="col-sm-12 text-center">
 		    		<strong>
@@ -400,7 +400,7 @@ function faceUI(){
 		    <a href="profile.php">
 		    <div class="row">
 		    	<div class="col-lg-6 col-lg-offset-3 col-xs-12" style="padding-bottom:10px">
-		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive"> 
+		    		<img src="img/avatar.png" alt="" style="width:70px;height:70px;" class="img-circle img-responsive">
 		    	</div>
 		    	<div class="col-sm-12 text-center">
 		    		<strong>

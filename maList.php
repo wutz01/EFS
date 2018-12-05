@@ -53,6 +53,7 @@
                             <thead>
                                 <tr class="active">
                                     <th class="">School Year</th>
+                                    <th class="">School</th>
                                     <th class="">Date Created</th>
                                     <th class="col-sm-">Status</th>
                                     <th class="col-sm-"></th>
@@ -60,7 +61,7 @@
                             </thead>
                             <tbody>
                              <?php
-                                  $conn = mysqli_connect("localhost","root","","efs");
+                                $conn = mysqli_connect("localhost","root","","efs");
                                 $departments = $college;
                              $result4 = mysqli_query($conn, "
                                 SELECT * FROM mustattendremarks
@@ -88,8 +89,9 @@
                              echo "
                                 <tr class='dataRow' data-toggle='modal' data-target='#viewEmp' data-id='$id'>
                                     <td>$sy</td>
+                                    <td>$college</td>
                                     <td>$dateCreated</td>
-                                    <td>$dean_status    </td>
+                                    <td>$dean_status</td>
                                     <td class='text-center'>
                                     <form action='mustAttend.php' method='post'>
                                     <input type ='text' name='ay' value='";

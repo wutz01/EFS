@@ -25,12 +25,10 @@
     <![endif]-->
     <link href="plugins/gritter/css/jquery.gritter.css" rel="stylesheet">
     <link href="plugins/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <!-- <link href="plugins/noty/noty.css" rel="stylesheet"> -->
     <link href="css/style.css" rel="stylesheet">
     <link href="http://jquery-ui-bootstrap.github.io/jquery-ui-bootstrap/css/custom-theme/jquery-ui-1.10.3.custom.css" rel="stylesheet"/>
-
-
     <script src="../js/ip.js"></script>
-
     <script >
         function sendNotes(){
            var notes = document.getElementById("remarks").value;
@@ -40,9 +38,5 @@
             // alert(id);
           document.getElementById("annualid").value=id;
         }
-
-
     </script>
-
-
 </head>

@@ -13,7 +13,7 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i>
                         <span class="label label-danger" id="notifCount"></span>
                         <b class="caret"></b>
                     </a>
@@ -64,7 +64,7 @@
                         <a href="javascript:void(0)" data-toggle="collapse" data-target="#manage"><i class="fa fa-fw fa-arrows-v"></i> Manage <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="manage" class="collapse">
                             <li>
-                                <a href="maList.php">Must-Attend</a>
+                                <a href="ma-list.php">Must-Attend</a>
                             </li>
                             <li>
                                 <a href="tna.php">TNA</a>

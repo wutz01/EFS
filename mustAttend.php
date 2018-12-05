@@ -16,13 +16,13 @@
 $conn = mysqli_connect('localhost', 'root', '', 'efs');
     include("include/nav.php");
     // $ay = $_SESSION['ay'];
-     
+
      $result = mysqli_query($conn, "SELECT * FROM mustattendremarks where department='$college'");
         $row = mysqli_fetch_array($result);
 		$ay = $row['annualyear'];
         $datecreated= $row['dates'];
-    
-                            
+
+
 ?>
 
 <div id="page-wrapper">
@@ -82,7 +82,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                             echo '<i  style="color:orange;" class="fa fa-clock-o "></i>';
                             echo ' <span style="color:orange;">Pending</span>';
                             echo '</h4>';
-                           
+
                         }else  if(($deanStatus=="Approved")&&($vpStatus=="New")&&($hrStatus=="New")){
                             echo '<i style="color:orange;" class="fa fa-clock-o "></i>';
                             echo " <span style='color:orange;'>Pending (VPAR"."'s Approval)</span>";
@@ -91,51 +91,51 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                              echo '<i style="color:orange;" class="fa fa-clock-o "></i>';
                             echo " <span style='color:orange;'>Pending</span>";
                             echo '</h4>';
-                           
+
                         }else  if(($deanStatus=="Revision")&&($vpStatus=="Revision")&&($hrStatus=="New")){
                              echo '<i style="color:red;" class="fa fa-pencil-square-o "></i>';
                              echo ' <span style="color:red;">For revision</span>';
                             echo '</h4>';
-                           
+
                         }else  if(($deanStatus=="Resend")&&($vpStatus=="Revision")&&($hrStatus=="New")){
                              echo '<i style="color:orange;" class="fa fa-clock-o "></i>';
                              echo ' <span style="color:orange;">Pending</span>';
                             echo '</h4>';
-                           
+
                         }else  if(($deanStatus=="Approved")&&($vpStatus=="Resend")&&($hrStatus=="New")){
                              echo '<i style="color:orange;" class="fa fa-clock-o "></i>';
                              echo ' <span style="color:orange;">Pending</span>';
                             echo '</h4>';
-                           
+
                         }else  if(($deanStatus=="Approved")&&($vpStatus=="Approved")&&($hrStatus=="New")){
                              echo '<i style="color:orange;" class="fa fa-clock-o "></i>';
                              echo ' <span style="color:orange;">Pending</span>';
                             echo '</h4>';
-                           
+
                         }else  if(($deanStatus=="Approved")&&($vpStatus=="Approved")&&($hrStatus=="Approved")){
                              echo '<i style="color:blue;" class="fa fa-check-circle-o "></i>';
                              echo ' <span style="color:blue;">Approved</span>';
                             echo '</h4>';
-                           
-                        }
-                       
 
-                      ?>  
+                        }
+
+
+                      ?>
                     </div>
                     <div class="col-sm-4 text-right">
-					
+
                     <?php
 
                         if(($deanStatus=="Revision")&&($vpStatus=="New")&&($hrStatus=="New")){
                              echo '<h5 class="text-muted"><a href="maEdit.php?ay='.$ay.'"><i style="color:red;" class="fa fa-pencil-square-o fa-2x"></i></a></h5>';
                         }else  if(($deanStatus=="Revision")&&($vpStatus=="Revision")&&($hrStatus=="New")){
                               echo '<h5 class="text-muted"><a href="maEdit.php?ay='.$ay.'"><i style="color:red;" class="fa fa-pencil-square-o fa-2x"></i></a></h5>';
-                           
+
                         }
 
-                      
+
                     ?>
-                        
+
                     </div>
                 </div>
 
@@ -150,8 +150,8 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                            $dean=$row1['dean_status'];
                            $vp =$row1['vp_status'];
 
-                          
-                            
+
+
 
                          ?>
                     <div class="col-sm-12">
@@ -185,7 +185,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                    echo $row['sponsor'];
                                    echo '</td>';
                                    echo '<td style="width:10%">';
-                                   echo $row['dates'];
+                                   echo $row['start_date'] . ' - ' . $row['end_date'];
                                    echo '</td>';
                                    echo '<td style="width:10%">';
                                    echo $row['days']." days";
@@ -196,13 +196,13 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                    echo '<td style="width:10%">';
                                    echo $row['person'];
                                    echo '</td>';
-                                   
+
                                     echo '<td style="width:10%">';
                                   echo '<button type="submit" class="btn btn-success" data-toggle="modal" data-target="#';
                                   echo $row['mas_id'];
                                   echo '">View more  <i class="fa fa-eye"></i></button>';
                                    echo '</td>';
-                                   
+
                                    if((($dean=="New")&&($vp=="New"))||(($dean=="Resend")&&($vp=="New"))||(($dean=="Approved")&&($vp=="Revision"))||(($dean=="Resend")&&($vp=="Revision"))){
                                         echo '<td>';
                                    echo '<input type="checkbox" id="';
@@ -215,16 +215,16 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                     }
                               echo '</tr>';
                              }
-                             
-                            
+
+
                         ?>
-                                   
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                   
+
                     <!-- <div class="col-sm-12">
                         <div class="row">
                             <hr>
@@ -325,7 +325,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                         </td>
                                     <tr>
                                         <td>
-                                            Transportation Air Fee 
+                                            Transportation Air Fee
                                         </td>
                                         <td>
                                             5000 <strong>x 5</strong>
@@ -351,7 +351,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                         <div class="row">
                             <h4 class="col-sm-6 pull-right">
                                 <p>
-                                    Total Cost: 
+                                    Total Cost:
                                     <span class="pull-right">P 15, 900.00</span>
                                 </p>
                             </h4>
@@ -433,7 +433,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
 <hr>
                 <div class="row">
                     <div class="col-sm-7 text-right">
-                        
+
                     </div>
                     <div class="col-sm-5 text-right">
                          <div class="row">
@@ -460,13 +460,13 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
 
 
                            }
-                            
+
 
                          ?>
-                             
+
                          </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -497,7 +497,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                         <input type="text" id="notes" name="notes" style="visibility:hidden;">
                      </div>
                 </div>
-                
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
@@ -533,7 +533,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                     echo '</h4>';
                 echo '</div>';
                 echo '<div class="modal-body">';
-                echo '<div class="row">';      
+                echo '<div class="row">';
                 echo '<div class="col-sm-12">';
                   echo '<div class="table-responsive">';
                     echo '<table class="table table-bordered">';
@@ -545,11 +545,11 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                 echo '<th style="width:15%;">Diem</th>';
                                 echo '<th style="width:15%;">Reg. Fee</th>';
                                 echo '<th style="width:15%;">Transpo</th>';
-                                
+
                             echo '</tr>';
                         echo '</thead>';
                         echo '<tbody>';
-                         
+
                              $result1 = mysqli_query($conn, "SELECT * FROM mas_breakdown where mas_list_id='$masid'");
                              $row1 = mysqli_fetch_array($result1);
                              if($row1['numofdean']>0){
@@ -596,7 +596,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                    echo $row1['transfeeChair'];
                                    echo '</td>';
                                 echo '</tr>';
-                                
+
                              }
                               if($row1['numoffaculty']>0){
                                 echo '<tr>';
@@ -619,7 +619,7 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                    echo $row1['transfeeFaculty'];
                                    echo '</td>';
                                 echo '</tr>';
-                                
+
                              }
 
                               echo '<tr>';
@@ -635,16 +635,16 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                                     $totalHotel = $row1['deanHotel']+$row1['chairHotel']+$row1['facultyHotel'];
 
                                       $hotel = number_format($totalHotel);
-                                     
+
                                    echo 'Total: &#8369;' .$hotel.'.00';
                                    echo '</td>';
-                                   
+
                                     echo '<td>';
                                     $totalDiem = $row1['deanDiem']+$row1['chairDiem']+$row1['facultyDiem'];
                                     $diem = number_format($totalDiem);
                                    echo 'Total: &#8369;' .$diem.'.00';
                                    echo '</td>';
-                                   
+
                                     echo '<td>';
                                     $totalReg = $row1['regfeeDean']+$row1['regfeeChair']+$row1['regfeeFaculty'];
                                     $reg= number_format($totalReg);
@@ -671,66 +671,66 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
                         echo '</thead>';
                         echo '<tbody>';
                                 echo '<tr>';
-                                echo '<td>';  
-                                echo 'Hotel'; 
+                                echo '<td>';
+                                echo 'Hotel';
                                 echo '</td>';
-                                echo '<td>';  
-                                echo '&#8369;' .$hotel.'.00'; 
-                                echo '</td>';  
+                                echo '<td>';
+                                echo '&#8369;' .$hotel.'.00';
+                                echo '</td>';
                                 echo '</tr>';
                                  echo '<tr>';
-                                echo '<td>';  
-                                echo 'Diem'; 
+                                echo '<td>';
+                                echo 'Diem';
                                 echo '</td>';
-                                 echo '<td>';  
-                                echo '&#8369;' .$diem.'.00'; 
-                                echo '</td>'; 
+                                 echo '<td>';
+                                echo '&#8369;' .$diem.'.00';
+                                echo '</td>';
                                 echo '</tr>';
                                  echo '<tr>';
-                                echo '<td>';  
-                                echo 'Registration Fee'; 
+                                echo '<td>';
+                                echo 'Registration Fee';
                                 echo '</td>';
-                                 echo '<td>';  
-                                
-                                echo '&#8369;' .$reg.'.00'; 
-                                echo '</td>'; 
+                                 echo '<td>';
+
+                                echo '&#8369;' .$reg.'.00';
+                                echo '</td>';
                                 echo '</tr>';
                                  echo '<tr>';
-                                echo '<td>';  
-                                echo 'Transportation'; 
+                                echo '<td>';
+                                echo 'Transportation';
                                 echo '</td>';
-                                echo '<td>';  
-                                
-                                echo '&#8369;' .$transpo.'.00'; 
+                                echo '<td>';
+
+                                echo '&#8369;' .$transpo.'.00';
                                 echo ' X 2';
-                                echo '</td>'; 
-                                echo '</tr>';
-                                 echo '<tr>';
-                               
-                                echo '</tr>';
-                                 echo '<tr>';
-                                echo '<td style="background-color:yellow;" class="text-right">';  
-                                echo 'Total Estimated Budget'; 
                                 echo '</td>';
-                                echo '<td style="background-color:yellow;">'; 
+                                echo '</tr>';
+                                 echo '<tr>';
+
+                                echo '</tr>';
+                                 echo '<tr>';
+                                echo '<td style="background-color:yellow;" class="text-right">';
+                                echo 'Total Estimated Budget';
+                                echo '</td>';
+                                echo '<td style="background-color:yellow;">';
                                 $totalbudget =$totalHotel+$totalDiem+$totalReg+($totalTranspo*2);
-                                $budgetTotal =  number_format($totalbudget);     
-                                echo '<strong>&#8369;' .$budgetTotal.'.00</strong>'; 
-                                echo '</td>'; 
+                                $budgetTotal =  number_format($totalbudget);
+                                echo '<strong>&#8369;' .$budgetTotal.'.00</strong>';
+                                echo '</td>';
                                 echo '</tr>';
                           echo '</tbody>';
                     echo '</table>';
                 echo '</div>';
 
-                            
+
                 echo '</div>';
-              
+
                 echo '</div>';
-                
+
                 echo '</div>';
                 echo '<div class="modal-footer">';
                     echo '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
-                
+
                 echo '</div>';
             echo '</div>';
             // <!-- /.modal-content -->
@@ -788,4 +788,3 @@ $conn = mysqli_connect('localhost', 'root', '', 'efs');
 
 
 </html>
-
