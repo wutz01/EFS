@@ -4,6 +4,12 @@
     include("action/session-auth.php");
     include("include/head.php");
     include("db/config.php");
+
+    $role = $_SESSION['user'];
+    if ($role != 'chair') {
+      header('Location: ma-list.php');
+      exit;
+    }
 ?>
 <title>E-FSDP | Acadhead</title>
 <!-- CSS -->

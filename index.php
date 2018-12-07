@@ -72,7 +72,7 @@
                             <div class="list-group">
                             <?php
                             $conn = mysqli_connect("localhost","root","","efs");
-                            $q = mysqli_query($conn,"SELECT title, start_date, end_date FROM mustattend WHERE department = '$college' ORDER BY start_date<now() DESC");
+                            $q = mysqli_query($conn,"SELECT mas_id, title, start_date, end_date FROM mustattend WHERE department = '$college' AND status = 'APPROVED' ORDER BY start_date<now() DESC");
                             if(mysqli_num_rows($q)!=0){
                                 while($rows=mysqli_fetch_assoc($q)){
 
@@ -88,7 +88,7 @@
                                     }
                                     $chronoDate = chrono(date("Y-m-d"),$rows['start_date']);
                                     echo '
-                                    <a href="seminarCreateOff.php?title='.$rows['title'].'" class="list-group-item">
+                                    <a href="ma-view.php?id='. $rows['mas_id'] .'" class="list-group-item">
                                         <span class="badge '.$badge.'">'.$chronoDate.' '.$suffix.'</span>
                                         <i class="fa fa-fw fa-calendar"></i> '.$rows['title'].'
                                     </a>

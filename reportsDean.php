@@ -1,7 +1,7 @@
 <?php
   include("action/session-auth.php");
   include("db/config.php");
-?>  
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <!-- /.row -->
-            
+
             <div class="row">
                 <div class="col-sm-6">
                     <div class="panel panel-default">
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="pdf/reports.php?type=mas&dept=<?php echo $college; ?>" target="_blank" class="text-muted">
+                        <a href="reports/ma.php?dept=<?php echo $college; ?>" target="_blank" class="text-muted">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right text-primary">
@@ -206,7 +206,7 @@
                 </div>
 
             </div>
-    
+
             </div>
             <!-- /.container-fluid -->
 

@@ -29,9 +29,12 @@
                   </div>
               </div>
               <!-- /.row -->
+              <?php $role = $_SESSION['user']; ?>
+              <?php if ($role === 'chair') { ?>
               <p class="text-right">
                 <a href="create-ma.php"  class="btn btn-primary"><i class="fa fa-plus"></i> Create New</a>
               </p>
+              <?php } ?>
               <div class="row" style="padding-top: 30px;">
                 <div class="col-xs-12">
                   <div class="table-responsive">
@@ -51,16 +54,16 @@
                       <tbody>
                         <?php
                           $userId = $_SESSION['accID'];
-                          $role = $_SESSION['user'];
+                          $dept = $_SESSION['college'];
                           $str = '';
                           if ($role == 'dean') {
-                            $str = "OR status = 'APPROVED' OR status = 'PENDING_DEAN_REVIEW' OR status = 'PENDING_EDIT_DEAN'";
+                            $str = "OR (status = 'APPROVED' OR status = 'PENDING_DEAN_REVIEW' OR status = 'PENDING_EDIT_DEAN') AND department = '$dept'";
                           }
                           if ($role == 'chair') {
-                            $str = "OR status = 'APPROVED' OR status = 'PENDING_EDIT_CHAIR'";
+                            $str = "OR status = 'APPROVED' OR status = 'PENDING_EDIT_CHAIR' AND department = '$dept'";
                           }
-                          if ($role == 'faculty') {
-                            $str = "OR status = 'APPROVED'";
+                          if ($role == 'faculty' || $role == 'hr') {
+                            $str = "OR status = 'APPROVED' AND department = '$dept'";
                           }
                           if ($role == 'vpar') {
                             $str = "OR status = 'APPROVED' OR status = 'PENDING_VP_REVIEW'";
